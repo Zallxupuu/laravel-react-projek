@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('namaPegawai');
             $table->string('alamatPegawai');
-            $table->string('umurPegawai');
+            $table->string('noPegawai');
             $table->timestamps();
         });
     }

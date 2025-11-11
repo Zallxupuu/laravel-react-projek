@@ -32,12 +32,12 @@ class pegawaiController extends Controller
         $request ->validate([
             'namaPegawai' => 'required | min:3 ',
             'alamatPegawai' => 'required| min:3',
-            'umurPegawai' => 'numeric | required | max:2'
+            'noPegawai' => 'numeric | required '
         ]);
 
         $data = pegawai::create($request->all());
 
-        return response()->json('$data');
+        return response()->json($data);
     }
 
     /**
