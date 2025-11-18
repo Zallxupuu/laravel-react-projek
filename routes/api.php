@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthorsController;
+use App\Http\Controllers\BookAuthorController;
+use App\Http\Controllers\BookLoanController;
+use App\Http\Controllers\BooksController;
+use App\Http\Controllers\BorrowersController;
 use App\Http\Controllers\pegawaiController;
 use App\Models\pegawai;
 use Illuminate\Http\Request;
@@ -22,3 +27,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('/pegawais', pegawaiController::class);
+
+
+Route::apiResource('/authors', AuthorsController::class);
+Route::apiResource('/bookAuthor', BookAuthorController::class);
+Route::apiResource('/BookLoan', BookLoanController::class);
+Route::apiResource('/Books', BooksController::class);
+Route::apiResource('/Borrowers', BorrowersController::class);
