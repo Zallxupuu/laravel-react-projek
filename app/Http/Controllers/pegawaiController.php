@@ -61,7 +61,17 @@ class pegawaiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+         $data = pegawai::findOrfail($id);
+
+        $request ->validate([
+            'namaPegawai' => 'required | min:3 ',
+            'alamatPegawai' => 'required| min:3',
+            'noPegawai' => 'numeric | required '
+        ]);
+
+        $data->update($request->all());
+
+        return response()->json($data);
     }
 
     /**
@@ -69,6 +79,11 @@ class pegawaiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pegawai = Pegawai::findOrFail($id);
+        $pegawai->delete();
+
+        return response()->json([
+        'message' => 'Data berhasil dihapus'
+        ]);
     }
 }
